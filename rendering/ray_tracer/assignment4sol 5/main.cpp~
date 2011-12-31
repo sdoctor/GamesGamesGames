@@ -1,0 +1,145 @@
+#include <cassert>
+#include <cstdio>
+#include <cstdlib>
+#include <cstring>
+#include <cmath>
+#include <iostream>
+
+#include "SceneParser.h"
+#include "Image.h"
+#include "Camera.h"
+#include <string.h>
+
+using namespace std;
+
+float clampedDepth ( float depthInput, float depthMin , float depthMax);
+
+int main( int argc, char* argv[] )
+{
+    // Fill in your implementation here.
+
+    // This loop loops over each of the input arguments.
+    // argNum is initialized to 1 because the first
+    // "argument" provided to the program is actually the
+    // name of the executable (in our case, "a4").
+    for( int argNum = 1; argNum < argc; ++argNum )
+    {
+        std::cout << "Argument " << argNum << " is: " << argv[argNum] << std::endl;
+    }
+	
+	int w, h ; //img size
+	float depthMin, depthMax;
+	char filename[80];
+	char output[80];
+	char depthOutput[80];
+	char normalsOutput[80];
+	bool depthMode = false, normalsMode = false;
+
+	for( int i = 0 ; i < argc ; i++){
+		if(!strcmp(argv[i], "-input")){
+			strcpy(filename, argv[i+1]);
+		}
+		else if(!strcmp(argv[i], "-size")){
+			w = atoi(argv[i+1]);
+			h = atoi(argv[i+2]);
+		}
+		else if(!strcmp(argv[i], "-output")){
+			strcpy(output , argv[i+1]);
+		}
+		else if(!strcmp(argv[i], "-depth")){
+			depthMode = true;
+			depthMin = atof(argv[i+1]);
+			depthMax = atof(argv[i+2]);
+			strcpy(depthOutput , argv[i+3]);
+		}
+		else if(!strcmp(argv[i], "-normals")){
+			normalsMode = true;
+			strcpy(normalsOutput , argv[i+1]);
+		}
+	}
+	
+    // First, parse the scene using SceneParser.
+    // Then loop over each pixel in the image, shooting a ray
+    // through that pixel and finding its intersection with
+    // the scene.  Write the color at the intersection to that
+    // pixel in your output image.
+
+	SceneParser Scene(filename);
+
+
+	Image image( w , h );
+	Image depth( w , h );
+	Image normals( w,h ); 
+
+	Camera* camera = Scene.getCamera();
+	Group* group = Scene.getGroup();
+
+	
+	
+	for( int  i = 0 ; i < h ; i++ ){
+		for ( int j = 0 ; j < w ; j++ ){
+			
+			float x = 2*(float)j/(float)w - 1.0f;
+			float y = 2*(float)i/(float)h - 1.0f;
+
+			Ray ray = camera->generateRay( Vector2f( x , y ) );
+
+			Hit hit;
+			group->intersect( ray , hit , camera->getTMin() ) ; 			
+			
+			Vector3f pixelColor,normalVal;
+			if( hit.getMaterial()==NULL){ //background
+				
+				pixelColor = Scene.getBackgroundColor();
+				normalVal = Vector3f(0.0,0.0,0.0);
+			}
+			else{
+				//ambient light
+				pixelColor = PhongMaterial::pointwiseDot( Scene.getAmbientLight(), hit.getMaterial()->getDiffuseColor());
+				//defussion light
+				for( int i = 0 ; i < Scene.getNumLights(); i++){
+					Light* light = Scene.getLight(i);
+					Vector3f dirToLight, lightColor ;
+					Vector3f position = ray.pointAtParameter(hit.getT());
+					float dist = hit.getT(); 
+					light->getIllumination( position , dirToLight , lightColor , dist);
+
+					pixelColor += hit.getMaterial()->Shade( ray , hit , dirToLight , lightColor ) ; 
+				}
+				
+				//normal map			
+				Vector3f n = hit.getNormal();
+				normalVal = Vector3f( abs(n[0]),abs(n[1]),abs(n[2]));
+			}
+			
+			float d = clampedDepth( hit.getT(), depthMin , depthMax);
+			
+			depth.SetPixel( j , i , Vector3f(d,d,d));
+			image.SetPixel( j ,  i , pixelColor );
+			normals.SetPixel( j , i , normalVal) ; 
+
+			
+		}
+	}
+
+	image.SaveTGA(output);
+	if( depthMode){ depth.SaveTGA(depthOutput);}
+	if( normalsMode){ normals.SaveTGA(normalsOutput);}
+
+    return 0;
+}
+
+float clampedDepth( float depthInput, float depthMin , float depthMax ){
+
+	float output; 
+	if( depthInput < depthMin)
+		output = 1.0f;
+	else if (depthInput > depthMax )
+		output = 0.0f;
+	else 
+		output = (depthMax - depthInput)/(depthMax - depthMin);
+	
+	return output;
+}
+
+

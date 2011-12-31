@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configurationDescriptor version="79">
+  <logicalFolder name="root" displayName="root" projectFiles="true" kind="ROOT">
+    <df name="assignment4sol" root=".">
+      <in>BoundingBox.cpp</in>
+      <in>BoundingBox.h</in>
+      <in>BoundingSphere.cpp</in>
+      <in>BoundingSphere.h</in>
+      <in>Camera.cpp</in>
+      <in>Camera.h</in>
+      <in>Checkerboard.cpp</in>
+      <in>Checkerboard.h</in>
+      <in>DirectionalLight.cpp</in>
+      <in>DirectionalLight.h</in>
+      <in>Film.cpp</in>
+      <in>Film.h</in>
+      <in>Filter.cpp</in>
+      <in>Filter.h</in>
+      <in>Grid.cpp</in>
+      <in>Grid.h</in>
+      <in>Group.cpp</in>
+      <in>Group.h</in>
+      <in>Hit.h</in>
+      <in>Image.cpp</in>
+      <in>Image.h</in>
+      <in>Light.cpp</in>
+      <in>Light.h</in>
+      <in>Marble.cpp</in>
+      <in>Marble.h</in>
+      <in>Material.cpp</in>
+      <in>Material.h</in>
+      <in>Noise.cpp</in>
+      <in>Noise.h</in>
+      <in>Object3D.cpp</in>
+      <in>Object3D.h</in>
+      <in>PerlinNoise.cpp</in>
+      <in>PerlinNoise.h</in>
+      <in>Plane.cpp</in>
+      <in>Plane.h</in>
+      <in>PointLight.cpp</in>
+      <in>PointLight.h</in>
+      <in>Ray.h</in>
+      <in>RayTracer.cpp</in>
+      <in>RayTracer.h</in>
+      <in>Sample.cpp</in>
+      <in>Sample.h</in>
+      <in>SampleDebugger.cpp</in>
+      <in>SampleDebugger.h</in>
+      <in>Sampler.cpp</in>
+      <in>Sampler.h</in>
+      <in>SceneParser.cpp</in>
+      <in>SceneParser.h</in>
+      <in>Sphere.cpp</in>
+      <in>Sphere.h</in>
+      <in>Transform.cpp</in>
+      <in>Transform.h</in>
+      <in>Triangle.cpp</in>
+      <in>Triangle.h</in>
+      <in>VecUtils.h</in>
+      <in>Wood.cpp</in>
+      <in>Wood.h</in>
+      <in>main.cpp</in>
+    </df>
+    <logicalFolder name="ExternalFiles"
+                   displayName="Important Files"
+                   projectFiles="false"
+                   kind="IMPORTANT_FILES_FOLDER">
+      <itemPath>Makefile</itemPath>
+    </logicalFolder>
+  </logicalFolder>
+  <sourceFolderFilter>^(nbproject)$</sourceFolderFilter>
+  <sourceRootList>
+    <Elem>.</Elem>
+  </sourceRootList>
+  <projectmakefile>Makefile</projectmakefile>
+  <confs>
+    <conf name="Default" type="0">
+      <toolsSet>
+        <remote-sources-mode>LOCAL_SOURCES</remote-sources-mode>
+        <compilerSet>default</compilerSet>
+      </toolsSet>
+      <makefileType>
+        <makeTool>
+          <buildCommandWorkingDir>.</buildCommandWorkingDir>
+          <buildCommand>${MAKE} -f Makefile</buildCommand>
+          <cleanCommand>${MAKE} -f Makefile clean</cleanCommand>
+          <executablePath>a5</executablePath>
+          <ccTool>
+            <incDir>
+              <pElem>/mit/6.837/public/include/vecmath</pElem>
+            </incDir>
+            <preprocessorList>
+              <Elem>_GLIBCXX_DEBUG</Elem>
+              <Elem>_GLIBCXX_DEBUG_PEDANTIC</Elem>
+            </preprocessorList>
+          </ccTool>
+        </makeTool>
+      </makefileType>
+      <item path="BoundingBox.h" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="BoundingSphere.h" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="DirectionalLight.h" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="Film.h" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="Filter.h" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="Grid.h" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="PerlinNoise.h" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="PointLight.h" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="RayTracer.h" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="Sample.h" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="Sampler.h" ex="true" tool="3" flavor="0">
+      </item>
+      <item path="VecUtils.h" ex="true" tool="3" flavor="0">
+      </item>
+    </conf>
+    <conf name="test_cases" type="0">
+      <toolsSet>
+        <remote-sources-mode>LOCAL_SOURCES</remote-sources-mode>
+        <compilerSet>default</compilerSet>
+      </toolsSet>
+      <makefileType>
+        <makeTool>
+          <buildCommandWorkingDir>.</buildCommandWorkingDir>
+          <buildCommand>${MAKE}</buildCommand>
+          <cleanCommand>${MAKE} clean</cleanCommand>
+          <executablePath></executablePath>
+        </makeTool>
+      </makefileType>
+    </conf>
+  </confs>
+</configurationDescriptor>

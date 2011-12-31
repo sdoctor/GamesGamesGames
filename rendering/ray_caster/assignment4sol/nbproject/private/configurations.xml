@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configurationDescriptor version="79">
+  <projectmakefile>Makefile</projectmakefile>
+  <confs>
+    <conf name="Default" type="0">
+      <toolsSet>
+        <developmentServer>localhost</developmentServer>
+        <platform>2</platform>
+      </toolsSet>
+      <dbx_gdbdebugger version="1">
+        <gdb_pathmaps>
+        </gdb_pathmaps>
+        <gdb_interceptlist>
+          <gdbinterceptoptions gdb_all="false" gdb_unhandled="true" gdb_unexpected="true"/>
+        </gdb_interceptlist>
+        <gdb_options>
+          <DebugOptions>
+          </DebugOptions>
+        </gdb_options>
+        <gdb_buildfirst gdb_buildfirst_overriden="false" gdb_buildfirst_old="false"/>
+      </dbx_gdbdebugger>
+      <gizmo_options version="3">
+        <configurationname>GizmoSimple</configurationname>
+      </gizmo_options>
+      <nativedebugger version="1">
+        <engine>gdb</engine>
+      </nativedebugger>
+      <runprofile version="9">
+        <runcommandpicklist>
+          <runcommandpicklistitem>"${OUTPUT_PATH}"  -input scene4_04_reflective_sphere.txt -size 200 200 -output output4_04b.tga -shadows -bounces 1 -weight 0.01</runcommandpicklistitem>
+          <runcommandpicklistitem>sh -c custom_test_batch.sh</runcommandpicklistitem>
+          <runcommandpicklistitem>"${OUTPUT_PATH}"  -input scene4_02_colored_shadows.txt -size 200 200 -output output4_02.tga -shadows</runcommandpicklistitem>
+          <runcommandpicklistitem>"${OUTPUT_PATH}"   -input scene7_02_checkerboard.txt -size 9 9 -render_samples samples7_02b.tga 20 -uniform_samples 16 </runcommandpicklistitem>
+          <runcommandpicklistitem>sh -c test_cases.sh</runcommandpicklistitem>
+          <runcommandpicklistitem>"${OUTPUT_PATH}"   -input scene7_02_checkerboard.txt -size 9 9 -render_samples samples7_02b.tga 20 -uniform_samples 16</runcommandpicklistitem>
+          <runcommandpicklistitem>"${OUTPUT_PATH}"    -input scene8_01_wooden_cubes.txt -size 300 300 -output output8_01.tga </runcommandpicklistitem>
+          <runcommandpicklistitem>"${OUTPUT_PATH}"    -input scene8_01_wooden_cubes.txt -size 300 300 -output output8_01.tga</runcommandpicklistitem>
+          <runcommandpicklistitem>"${OUTPUT_PATH}"     -input boundBunny.txt -size 200 200 -output output3_04_BOUND.tga</runcommandpicklistitem>
+          <runcommandpicklistitem>"${OUTPUT_PATH}"     -input scene7_03_marble_vase.txt  -size 200 200 -output output7_03d.tga -shadows -jittered_samples 36 -box_filter 0.4</runcommandpicklistitem>
+        </runcommandpicklist>
+        <runcommand>"${OUTPUT_PATH}"     -input scene7_03_marble_vase.txt  -size 200 200 -output output7_03d.tga -shadows -jittered_samples 36 -box_filter 0.4</runcommand>
+        <rundir>.</rundir>
+        <buildfirst>true</buildfirst>
+        <console-type>2</console-type>
+        <terminal-type>0</terminal-type>
+        <remove-instrumentation>0</remove-instrumentation>
+        <environment>
+        </environment>
+      </runprofile>
+    </conf>
+    <conf name="test_cases" type="0">
+      <toolsSet>
+        <developmentServer>localhost</developmentServer>
+        <platform>2</platform>
+      </toolsSet>
+      <dbx_gdbdebugger version="1">
+        <gdb_pathmaps>
+        </gdb_pathmaps>
+        <gdb_interceptlist>
+          <gdbinterceptoptions gdb_all="false" gdb_unhandled="true" gdb_unexpected="true"/>
+        </gdb_interceptlist>
+        <gdb_options>
+          <DebugOptions>
+          </DebugOptions>
+        </gdb_options>
+        <gdb_buildfirst gdb_buildfirst_overriden="false" gdb_buildfirst_old="false"/>
+      </dbx_gdbdebugger>
+      <gizmo_options version="3">
+        <configurationname>GizmoSimple</configurationname>
+      </gizmo_options>
+      <nativedebugger version="1">
+        <engine>gdb</engine>
+      </nativedebugger>
+      <runprofile version="9">
+        <runcommandpicklist>
+          <runcommandpicklistitem>"${OUTPUT_PATH}"</runcommandpicklistitem>
+        </runcommandpicklist>
+        <runcommand>"${OUTPUT_PATH}"</runcommand>
+        <rundir></rundir>
+        <buildfirst>false</buildfirst>
+        <terminal-type>0</terminal-type>
+        <remove-instrumentation>0</remove-instrumentation>
+        <environment>
+        </environment>
+      </runprofile>
+    </conf>
+  </confs>
+</configurationDescriptor>
