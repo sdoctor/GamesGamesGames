@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configurationDescriptor version="79">
+  <logicalFolder name="root" displayName="root" projectFiles="true" kind="ROOT">
+    <df name="code" root=".">
+      <in>camera.cpp</in>
+      <in>camera.h</in>
+      <in>chainSystem.cpp</in>
+      <in>chainSystem.h</in>
+      <in>clothSystem.cpp</in>
+      <in>clothSystem.h</in>
+      <in>integrator.cpp</in>
+      <in>integrator.h</in>
+      <in>main.cpp</in>
+      <in>particleSystem.cpp</in>
+      <in>particleSystem.h</in>
+      <in>pendulumSystem.cpp</in>
+      <in>pendulumSystem.h</in>
+      <in>simpleSystem.cpp</in>
+      <in>simpleSystem.h</in>
+      <in>spring.cpp</in>
+      <in>spring.h</in>
+    </df>
+    <logicalFolder name="ExternalFiles"
+                   displayName="Important Files"
+                   projectFiles="false"
+                   kind="IMPORTANT_FILES_FOLDER">
+      <itemPath>Makefile</itemPath>
+    </logicalFolder>
+  </logicalFolder>
+  <sourceFolderFilter>^(nbproject)$</sourceFolderFilter>
+  <sourceRootList>
+    <Elem>.</Elem>
+  </sourceRootList>
+  <projectmakefile>Makefile</projectmakefile>
+  <confs>
+    <conf name="Default" type="0">
+      <toolsSet>
+        <remote-sources-mode>LOCAL_SOURCES</remote-sources-mode>
+        <compilerSet>default</compilerSet>
+      </toolsSet>
+      <makefileType>
+        <makeTool>
+          <buildCommandWorkingDir>.</buildCommandWorkingDir>
+          <buildCommand>${MAKE} -f Makefile</buildCommand>
+          <cleanCommand>${MAKE} -f Makefile clean</cleanCommand>
+          <executablePath>a3</executablePath>
+          <ccTool>
+            <incDir>
+              <pElem>../../../../../6.837/public/include/vecmath</pElem>
+              <pElem>/usr/include/GL</pElem>
+            </incDir>
+          </ccTool>
+        </makeTool>
+      </makefileType>
+    </conf>
+  </confs>
+</configurationDescriptor>
